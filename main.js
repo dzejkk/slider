@@ -48,37 +48,42 @@ backButton.addEventListener("click", () => {
 
 function changeText(index) {
 
-
-  /*animation*/
-    anime({
-      targets: img,
-      opacity: [0, 1],
-      duration: 600,
-      easing: 'easeOutQuad'
+  anime({
+    targets: [img, article],
+    opacity: 0,
+    translateY: -50,
+    duration: 0
   });
 
-    
-    anime({
-      targets: article,
-      opacity: [0, 1],
-      translateY: [-50, 0],
-      duration: 500,
-      easing: 'easeOutCubic',
-  });
 
-  /*animation*/
-
-
-
+  
   article.innerHTML = `
-                    ${people[index].article}
-                        <span class="signature" id="span">
-                            <b>${people[index].name}</b>&nbsp&nbsp ${people[index].occupation}
-                        </span>`;
-
+  ${people[index].article}
+  <span class="signature" id="span">
+  <b>${people[index].name}</b>&nbsp&nbsp ${people[index].occupation}
+  </span>`;
+  
   img.src = people[index].imgURL;
 }
 
+/*animation*/
+  anime({
+    targets: img,
+    opacity: [0, 1],
+    duration: 600,
+    easing: 'easeOutQuad'
+});
+
+  
+  anime({
+    targets: article,
+    opacity: [0, 1],
+    translateY: [-50, 0],
+    duration: 500,
+    easing: 'easeOutCubic',
+});
+
+/*animation*/
 
 /* old code*/
 
