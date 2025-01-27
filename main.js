@@ -54,7 +54,7 @@ function changeText(index) {
   anime({
     targets: [img, article],
     opacity: 0,
-    translateY: -50,
+    translateY: 0,
     duration: 0
   });
 
