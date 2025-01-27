@@ -1,4 +1,3 @@
-
 const people = [
   {
     name: "Tanya Sinclair",
@@ -46,8 +45,12 @@ backButton.addEventListener("click", () => {
   }
 );
 
+
+
+
 function changeText(index) {
 
+  // First, reset opacity and position before changing content
   anime({
     targets: [img, article],
     opacity: 0,
@@ -55,35 +58,31 @@ function changeText(index) {
     duration: 0
   });
 
-
-  
+  // Change content
   article.innerHTML = `
-  ${people[index].article}
-  <span class="signature" id="span">
-  <b>${people[index].name}</b>&nbsp&nbsp ${people[index].occupation}
-  </span>`;
-  
-  img.src = people[index].imgURL;
-}
+    ${people[index].article}
+    <span class="signature" id="span">
+      <b>${people[index].name}</b>&nbsp;&nbsp;${people[index].occupation}
+    </span>`;
 
-/*animation*/
+  img.src = people[index].imgURL;
+
+  // Then animate new content
   anime({
     targets: img,
     opacity: [0, 1],
-    duration: 600,
+    duration: 800,
     easing: 'easeOutQuad'
-});
-
-  
+  });
+    
   anime({
     targets: article,
     opacity: [0, 1],
     translateY: [-50, 0],
     duration: 500,
-    easing: 'easeOutCubic',
-});
-
-/*animation*/
+    easing: 'easeOutCubic'
+  });
+}
 
 /* old code*/
 
