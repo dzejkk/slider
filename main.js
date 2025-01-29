@@ -50,13 +50,13 @@ backButton.addEventListener("click", () => {
 
 function changeText(index) {
 
-  // First, reset opacity and position before changing content
-  // anime({
-  //   targets: [img, article],
-  //   opacity: 0,
-  //   translateY: 0,
-  //   duration: 0
-  // });
+//  First, reset opacity and position before changing content
+  anime({
+    targets: [img, article],
+    opacity: 0,
+    translateY: 0,
+    duration: 0
+  });
 
   // Change content
   article.innerHTML = `
