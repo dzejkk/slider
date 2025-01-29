@@ -68,22 +68,24 @@ function changeText(index) {
   img.src = people[index].imgURL;
 
   // Then animate new content
-  anime({
-    targets: img,
-    opacity: [0, 1],
-    duration: 800,
-    easing: 'easeOutQuad'
-  });
-    
-  anime({
-    targets: article,
-    opacity: [0, 1],
-    translateY: [-50, 0],
-    duration: 500,
-    easing: 'easeOutCubic'
-  });
-}
+  // Wait for the image to load before animating
+  img.onload = () => {
+    anime({
+      targets: img,
+      opacity: [0, 1],
+      duration: 800,
+      easing: "easeOutQuad"
+    });
 
+    anime({
+      targets: article,
+      opacity: [0, 1],
+      translateY: [-50, 0],
+      duration: 500,
+      easing: "easeOutCubic"
+    });
+  };
+}
 /* old code*/
 
 /*
